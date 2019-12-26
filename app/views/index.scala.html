@@ -1,0 +1,12 @@
+@(message : String)(implicit messages: play.api.i18n.Messages)
+
+@main("Welcome to Play11") {
+  <h1>Welcome to Play!</h1>
+  <br>
+  <span>
+    <div>
+      <b>@message</b>
+    </div>
+    <a href="board">게시판</a>
+  </span>
+}
