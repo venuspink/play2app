@@ -1,0 +1,6 @@
+# https://www.playframework.com/documentation/latest/ScalaI18N
+application.name = Product catalog
+
+
+product.snack = Snack
+product.details = Product

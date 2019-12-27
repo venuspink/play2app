@@ -3,3 +3,21 @@ application.name = Product catalog
 
 
 product.snack = 과자
+product.details = 제품명
+
+product.regist = 제품등록
+
+
+products.details = Product: {0}
+products.form = Product details
+products.list = Product catalog
+products.list.navigation = Products
+products.new = (new)
+products.new.command = New
+products.new.submit = Add
+products.new.success = Successfully added product {0}.
+products.edit.command = Edit
+products.edit.submit = Update
+products.update.success = Successfully modified product {0}.
+
+validation.ean = 숫자만 입력가능

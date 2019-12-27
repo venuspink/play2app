@@ -7,9 +7,17 @@
   </div>
   <dl class="products">
     @for(product <- products){
-      <dt>@product.name</dt>
+      <dt>
+        <a href="@routes.Products.show(product.ean)">@product.name</a>
+      </dt>
       <dd>@product.description</dd>
     }
   </dl>
+
+  <p>
+    <a href="@routes.Products.newProduct()">
+      제품등록
+    </a>
+  </p>
 
 }

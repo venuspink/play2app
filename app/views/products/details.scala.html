@@ -1,0 +1,21 @@
+@(product: Product)(implicit messages: Messages)
+
+@main("assads") {
+
+  <h2>
+    제품상세 - @messages.messages("product.details")
+  </h2>
+  <div>
+    <ul>
+      <li>제품번호 : @product.ean</li>
+      <li>제품명 : @product.name</li>
+      <li>제품설명 : @product.description</li>
+    </ul>
+  </div>
+
+  <div>
+    <a href="@routes.Products.edit(product.ean)">
+      @messages("products.edit.command")
+    </a>
+  </div>
+}
