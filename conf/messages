@@ -20,4 +20,10 @@ products.edit.command = Edit
 products.edit.submit = Update
 products.update.success = Successfully modified product {0}.
 
-validation.ean = 숫자만 입력가능
+validation.ean = 10000이상 입력 불가
+validation.ean.duplicate = 이미 등록된 EAN입니다
+validation.errors = 에러!!
+
+# custom ERROR MESSAGES (Validation.scala 참조)
+error.required = 필수입력 항목입니다
+

@@ -47,8 +47,8 @@ class Products @Inject() (val controllerComponents: ControllerComponents)(langs:
 
   private def eanCheck(ean: Long) = {
     ean match {
-      case _: Long  => true
-      case _: 10000 < _ => true
+//      case (_ : Long)  => println("EAN value is long")
+      case x if x < 10000 => true
       case _ => false
     }
 //    def sumDigits(digits: IndexedSeq[(Char, Int)]): Int = {
@@ -67,7 +67,7 @@ class Products @Inject() (val controllerComponents: ControllerComponents)(langs:
 
   private def makeProductForm(error: String, constraint: (Long) => Boolean) = Form(
     mapping(
-      "ean" -> longNumber.verifying("validation.ean", eanCheck _).verifying(error, constraint),
+      "ean" -> longNumber.verifying("validation.ean", eanCheck _).verifying(error, constraint), //첫번째로 입력형식을 체크하고, 두번째로 중복체크
       "name" -> nonEmptyText,
       "description" -> nonEmptyText
     )(Product.apply)(Product.unapply)
