@@ -1,4 +1,4 @@
-@(products: List[Product])(title: String)
+@(products: List[Product])(title: String)(result: Option[Any])
 
 @main("상품목록") {
 
@@ -13,6 +13,10 @@
       <dd>@product.description</dd>
     }
   </dl>
+
+  <div>
+    @result
+  </div>
 
   <p>
     <a href="@routes.Products.newProduct()">

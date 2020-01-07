@@ -1,5 +1,6 @@
 package controllers
 
+import dao.ProductsDAO
 import javax.inject.Inject
 import models.Product
 import play.api.data.Form
@@ -7,7 +8,8 @@ import play.api.i18n.{I18nSupport, Lang, Langs, Messages, MessagesApi}
 import play.api.mvc._
 import play.api.data.Forms._
 
-class Products @Inject() (val controllerComponents: ControllerComponents)(langs: Langs, messagesApi: MessagesApi) extends BaseController with I18nSupport{
+class Products @Inject() (productsDAO: ProductsDAO)(val controllerComponents: ControllerComponents)(langs: Langs, messagesApi: MessagesApi)
+                          extends BaseController with I18nSupport{
 
   val enLang = Lang("en")
 
@@ -23,7 +25,9 @@ class Products @Inject() (val controllerComponents: ControllerComponents)(langs:
 
     println("TITLE : " + title)
 
-    Ok(views.html.products.list(products)(title))
+    val result: Option[Any] = productsDAO.testSelect
+
+    Ok(views.html.products.list(products)(title)(result))
 
   }
 
