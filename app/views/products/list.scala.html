@@ -1,4 +1,6 @@
 @(products: List[Product])(title: String)(result: Option[Any])
+@import helper._
+
 
 @main("상품목록") {
 
@@ -23,5 +25,15 @@
       제품등록
     </a>
   </p>
+
+  <div>
+    <h3>scalikejdbc 테스트</h3>
+    <p>
+      @helper.form(action = routes.Products.create()) {
+        <input type="submit" value="CREATE" />
+      }
+    </p>
+  </div>
+
 
 }

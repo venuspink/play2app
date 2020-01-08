@@ -2,6 +2,7 @@ package dao
 
 import javax.inject.{Inject, Singleton}
 import scalikejdbc._
+import models.Product
 
 @Singleton
 class ProductsDAO {
@@ -23,10 +24,11 @@ class ProductsDAO {
 
     return res
   }
+}
 
-  def insert = {
-    sql"insert into "
+object Product extends SQLSyntaxSupport[Product] {
+  implicit val session = AutoSession
+  def create = {
+    val id = sql"insert into products (ean,name,description) values(111, '오징어땅콩', '땅콩과자')".update.apply()
   }
-
-
 }

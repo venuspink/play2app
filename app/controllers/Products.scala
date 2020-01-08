@@ -7,6 +7,9 @@ import play.api.data.Form
 import play.api.i18n.{I18nSupport, Lang, Langs, Messages, MessagesApi}
 import play.api.mvc._
 import play.api.data.Forms._
+import play.api.libs.json._
+
+import scala.concurrent.Future
 
 class Products @Inject() (productsDAO: ProductsDAO)(val controllerComponents: ControllerComponents)(langs: Langs, messagesApi: MessagesApi)
                           extends BaseController with I18nSupport{
@@ -139,6 +142,21 @@ class Products @Inject() (productsDAO: ProductsDAO)(val controllerComponents: Co
         Redirect(routes.Products.show(newProduct.ean)).flashing(successMessage)
       }
     )
+  }
+
+  def create = Action.async {
+    val pt = new Product(100,"TTT","2222")
+
+    println("시작 : " + java.time.LocalDateTime.now())
+
+    Thread sleep 1 * 5000L //5초 sleep
+
+    println("끝 : "+ java.time.LocalDateTime.now())
+
+
+
+    Future.successful( Ok(Json.toJson(pt)))
+
   }
 
 

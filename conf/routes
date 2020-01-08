@@ -17,3 +17,4 @@ GET     /products/:ean              controllers.Products.show(ean: Long)
 POST    /products/:ean              controllers.Products.update(ean: Long)
 PUT     /products/:ean              controllers.Products.update(ean: Long)
 GET     /products/:ean/edit         controllers.Products.edit(ean: Long)
+GET     /products/jdbctest/create           controllers.Products.create

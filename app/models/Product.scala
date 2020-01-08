@@ -5,6 +5,9 @@ case class Product (
 )
 
 object Product {
+
+  implicit val fmt = play.api.libs.json.Json.format[Product]
+
   var products = Set(
     Product(5050L, "Glove", "descente glove"),
     Product(5060L, "Backpack", "northface pack"),
