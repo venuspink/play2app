@@ -145,6 +145,9 @@ class Products @Inject() (productsDAO: ProductsDAO)(val controllerComponents: Co
   }
 
   def create = Action.async {
+
+    dao.Product.create
+
     val pt = new Product(100,"TTT","2222")
 
     println("시작 : " + java.time.LocalDateTime.now())
